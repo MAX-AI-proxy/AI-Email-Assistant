@@ -1,0 +1,48 @@
+# Credentials and private runtime data (only the blank template is publishable)
+.env*
+!.env.example
+.max-ai-data/
+*.pem
+*.key
+*.p12
+*.pfx
+*.eml
+*.mbox
+*.sqlite*
+*.db
+
+# Dependencies and generated output
+node_modules/
+.next/
+out/
+build/
+dist/
+.pnp*
+.yarn/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# Tests, logs and temporary files
+coverage/
+playwright-report/
+test-results/
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.cache/
+.npm/
+
+# Local tools and operating-system files
+.DS_Store
+._*
+Thumbs.db
+.vscode/
+.idea/
+.codex/
+.agents/
+
+# The separately checked public export is not part of this working copy
+MAX-AI_Public/
