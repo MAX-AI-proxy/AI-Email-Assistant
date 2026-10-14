@@ -32,8 +32,7 @@ university email in one workspace and a clearer view of what needed attention.
 The public repository contains the complete productive mail and AI application
 code, with no personal credentials, private emails or personal analysis history.
 The portfolio demo uses independently written fictional messages and the actual
-validated results of five one-time OpenAI calls. The interface is German;
-this documentation is English.
+validated results of five one-time OpenAI calls.
 
 ## Architecture
 
