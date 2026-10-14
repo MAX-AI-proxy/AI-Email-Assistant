@@ -11,6 +11,7 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "demo/dist/**",
     "next-env.d.ts",
     "MAX-AI_Public/**",
   ]),

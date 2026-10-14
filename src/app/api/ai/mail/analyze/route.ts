@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     const cached = await getCachedMailAnalysis(cacheKey)
     if (cached) return Response.json({ ...cached, cached: true })
     if (!process.env.OPENAI_API_KEY) {
-      return Response.json({ error: "OPENAI_API_KEY fehlt. Trage deinen eigenen API-Key in .env.local ein und starte MAX AI neu." }, { status: 503 })
+      return Response.json({ error: "OPENAI_API_KEY fehlt. Trage deinen eigenen API-Key in .env.local ein und starte AI Email Assistant neu." }, { status: 503 })
     }
     const existing = runningAnalyses.get(cacheKey)
     if (existing) return Response.json({ ...await existing, cached: true })

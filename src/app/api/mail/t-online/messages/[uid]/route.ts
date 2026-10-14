@@ -40,7 +40,7 @@ export async function GET(
     return Response.json(
       {
         ok: false,
-        error: "T-Online-Zugangsdaten fehlen. Trage T_ONLINE_EMAIL und T_ONLINE_APP_PASSWORD in .env.local ein und starte MAX AI neu.",
+        error: "T-Online-Zugangsdaten fehlen. Trage T_ONLINE_EMAIL und T_ONLINE_APP_PASSWORD in .env.local ein und starte AI Email Assistant neu.",
       },
       {
         status: 503,

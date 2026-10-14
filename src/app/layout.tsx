@@ -4,7 +4,6 @@ import type {
   Metadata,
 } from "next"
 
-import "mathlive/fonts.css"
 import "./globals.css"
 
 import AppShell from "@/components/app-shell"
@@ -14,10 +13,10 @@ import TOnlineAutoAnalyzer from "@/components/mail/t-online-auto-analyzer"
 export const metadata:
   Metadata = {
     title:
-      "MAX AI",
+      "AI Email Assistant",
 
     description:
-      "Local email workspace with AI analysis and interactive puzzles",
+      "Local IMAP email workspace with AI summaries, prioritization and action detection",
   }
 
 export default async function RootLayout({

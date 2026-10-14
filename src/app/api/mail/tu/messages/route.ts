@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     return Response.json(
       {
         ok: false,
-        error: "TU-Zugangsdaten fehlen. Trage TU_EMAIL_ADDRESS, TU_EMAIL_USERNAME und TU_EMAIL_PASSWORD in .env.local ein und starte MAX AI neu.",
+        error: "TU-Zugangsdaten fehlen. Trage TU_EMAIL_ADDRESS, TU_EMAIL_USERNAME und TU_EMAIL_PASSWORD in .env.local ein und starte AI Email Assistant neu.",
       },
       {
         status: 503,

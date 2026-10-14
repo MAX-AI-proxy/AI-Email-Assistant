@@ -8,20 +8,12 @@ test("mail entry, missing configuration, real API safeguards and navigation", as
   await page.getByRole("button", { name: /^Uni/ }).click()
   await expect(page.getByText(/TU-Zugangsdaten fehlen\. Trage/)).toBeVisible()
   const links = page.locator("nav a")
-  expect(await links.allTextContents()).toEqual(["Mail", "Spielwiese"])
+  expect(await links.allTextContents()).toEqual(["Mail"])
   const response = await request.get("/api/mail/t-online/messages")
   expect(response.status()).toBe(503)
   expect(response.headers()["cache-control"]).toContain("no-store")
   expect((await request.get("/api/mail/t-online/messages", { headers: { origin: "https://example.test" } })).status()).toBe(403)
-  await page.getByRole("link", { name: "Spielwiese", exact: true }).click()
-  await page.getByRole("link", { name: /Logic Lab/ }).click()
-  await expect(page.getByRole("heading", { name: "Logic Lab", exact: true })).toBeVisible()
-  await expect(page.getByText("Noch nicht verfügbar")).toHaveCount(0)
-  await page.getByRole("link", { name: /Quick Play/ }).click()
-  await expect(page.getByRole("heading", { name: "Quick Play" })).toBeVisible()
-  await page.getByRole("button", { name: "Hint", exact: true }).click()
-  await page.getByRole("button", { name: "Lösung", exact: true }).click()
-  await expect(page.getByText("Lösungsweg", { exact: true })).toBeVisible()
+
 })
 
 test("fictional mail, AI results and fast account switch do not show stale content", async ({ page }) => {
@@ -57,17 +49,13 @@ test("fictional mail, AI results and fast account switch do not show stale conte
   await expect(page.getByText(/This is a completely fictional invoice/)).toHaveCount(0)
 })
 
-test("Sudoku persists a generated puzzle and mobile navigation works", async ({ page }) => {
-  await page.goto("/spielwiese/sudoku")
-  await expect(page.getByRole("heading", { name: "Sudoku", exact: true })).toBeVisible()
-  await expect(page.getByRole("button", { name: "Notizen", exact: true })).toBeVisible()
-  const saved = await page.evaluate(() => localStorage.getItem("max-ai-sudoku-current-v1"))
-  expect(saved).toBeTruthy()
-  await page.reload()
-  await expect(page.getByRole("button", { name: "Notizen", exact: true })).toBeVisible()
-  expect(await page.evaluate(() => localStorage.getItem("max-ai-sudoku-current-v1"))).toBe(saved)
+test("mobile mail navigation and removed game routes", async ({ page, request }) => {
   await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto("/mail")
   await page.getByRole("button", { name: "Menü öffnen" }).click()
   await page.getByRole("link", { name: "Mail", exact: true }).click()
-  await expect(page).toHaveURL(/\/mail$/)
+  await expect(page.getByRole("heading", { name: "Mail", exact: true })).toBeVisible()
+  for (const route of ["/spielwiese", "/spielwiese/sudoku", "/spielwiese/logic-lab"]) {
+    expect((await request.get(route)).status()).toBe(404)
+  }
 })

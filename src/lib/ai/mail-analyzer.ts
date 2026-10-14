@@ -197,15 +197,13 @@ function cleanMailText(
 }
 
 export async function analyzeMail(
-  mail: MailForAnalysis
+  mail: MailForAnalysis,
+  openai = getOpenAI()
 ): Promise<{
   analysis: MailAnalysis
   usage: MailAnalysisUsage
   responseId: string
 }> {
-  const openai =
-    getOpenAI()
-
   const mailText =
     cleanMailText(
       mail.text
@@ -225,7 +223,7 @@ export async function analyzeMail(
         700,
 
       instructions: `
-Du bist der Mail-Analyst von MAX AI.
+Du bist der Mail-Analyst von AI Email Assistant.
 
 Analysiere die E-Mail ausschließlich für den Empfänger.
 
@@ -299,7 +297,7 @@ ${mailText || "-"}
             "json_schema",
 
           name:
-            "max_ai_mail_analysis",
+            "ai_email_assistant_analysis",
 
           strict: true,
 

@@ -1,35 +1,23 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
 
-import { Gamepad2, Mail, Menu, X } from "lucide-react"
+import { Mail, Menu, X } from "lucide-react"
 
 const navigation = [
   { name: "Mail", icon: Mail, href: "/mail" },
-  { name: "Spielwiese", icon: Gamepad2, href: "/spielwiese" },
 ]
 
 export default function AppShell({
-  children,
+  children, demo = false,
 }: {
   children: React.ReactNode
+  demo?: boolean
 }) {
   const [
     mobileMenuOpen,
     setMobileMenuOpen,
   ] = useState(false)
-
-  const pathname = usePathname()
-
-  function isActive(href: string) {
-    if (href === "/") {
-      return pathname === "/"
-    }
-
-    return pathname.startsWith(href)
-  }
 
   return (
     <div className="min-h-screen bg-[#0d0f12] text-[#f5f5f7]">
@@ -49,7 +37,7 @@ export default function AppShell({
         </button>
 
         <span className="ml-3 text-[15px] font-semibold tracking-tight">
-          MAX AI
+          AI Email Assistant
         </span>
       </div>
 
@@ -66,6 +54,7 @@ export default function AppShell({
 
       {/* Sidebar */}
       <aside
+        aria-label="Hauptnavigation"
         className={`
           fixed inset-y-0 left-0 z-50 flex w-[250px] flex-col
           border-r border-white/[0.06] bg-[#111317]
@@ -79,8 +68,8 @@ export default function AppShell({
         `}
       >
         <div className="flex h-20 items-center px-6">
-          <span className="text-[17px] font-semibold tracking-[-0.02em]">
-            MAX AI
+          <span className="text-[16px] font-semibold tracking-[-0.02em]">
+            AI Email Assistant
           </span>
 
           <button
@@ -103,12 +92,12 @@ export default function AppShell({
               const Icon = item.icon
 
               const active =
-                isActive(item.href)
+                true
 
               return (
-                <Link
+                <a
                   key={item.name}
-                  href={item.href}
+                  href={demo ? "#mail" : item.href}
                   aria-current={active ? "page" : undefined}
                   onClick={() =>
                     setMobileMenuOpen(false)
@@ -132,7 +121,7 @@ export default function AppShell({
                   <span>
                     {item.name}
                   </span>
-                </Link>
+                </a>
               )
             })}
           </div>
@@ -140,7 +129,7 @@ export default function AppShell({
         </nav>
 
         <div className="px-6 pb-6 text-[11px] text-[#595a60]">
-          MAX AI · Lokal
+          AI Email Assistant · {demo ? "Demo" : "Lokal"}
         </div>
       </aside>
 

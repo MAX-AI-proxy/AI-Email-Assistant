@@ -3,7 +3,7 @@ import { mkdtemp, mkdir, readFile, writeFile, rm, symlink } from "node:fs/promis
 import path from "node:path"
 import os from "node:os"
 import { createHash } from "node:crypto"
-import { auditPublic, publicFiles } from "../../scripts/audit-public.mjs"
+import { auditPublic, publicFiles, validateScreenshot } from "../../scripts/audit-public.mjs"
 let temp: string
 beforeEach(async () => {
   temp = await mkdtemp(path.join(os.tmpdir(), "max-ai-export-test-"))
@@ -46,4 +46,18 @@ test("rejects symlinks and changed manifest content", async () => {
   await rm(path.join(temp, "unexpected-link"))
   await writeFile(path.join(temp, "README.md"), "Changed public document")
   await expect(auditPublic(temp)).rejects.toThrow("checksum mismatch")
+})
+
+test("only reviewed screenshots accept PNG pixels; metadata and corrupt files are rejected", async () => {
+  const pixels = await readFile("docs/screenshots/inbox.png")
+  expect(() => validateScreenshot(pixels)).not.toThrow()
+  const metadataChunk = Buffer.concat([Buffer.from([0, 0, 0, 0]), Buffer.from("tEXt"), Buffer.alloc(4)])
+  const withMetadata = Buffer.concat([pixels.subarray(0, 33), metadataChunk, pixels.subarray(33)])
+  await writeFile(path.join(temp, "docs/screenshots/inbox.png"), withMetadata)
+  await expect(auditPublic(temp)).rejects.toThrow("invalid PNG or embedded metadata")
+  const corrupt = Buffer.from(pixels)
+  corrupt[40] ^= 1
+  expect(() => validateScreenshot(corrupt)).toThrow()
+  await writeFile(path.join(temp, "README.md"), pixels)
+  await expect(auditPublic(temp)).rejects.toThrow("unreviewed binary content")
 })

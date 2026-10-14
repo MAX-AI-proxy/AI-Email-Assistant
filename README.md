@@ -1,221 +1,192 @@
-# MAX AI
+# AI Email Assistant
 
-A local email workspace with AI-assisted reading, built with Next.js,
-TypeScript, and Tailwind CSS. A minimal dark interface brings two IMAP inboxes
-into one application and turns T-Online messages into structured summaries.
+A personal email workspace built with Next.js, TypeScript and OpenAI. Read two
+IMAP inboxes in one dark interface and turn messages into structured summaries,
+priorities, deadlines and next steps.
+
+**[Try the interactive demo →](https://max-ai-proxy.github.io/AI-Email-Assistant/)**
+No account, installation or API key required. The demo runs entirely in your
+browser with five fictional emails and genuine, previously recorded AI analyses.
+Opening an analysis never makes a new model request.
+
+![Demo inbox with five fictional messages](docs/screenshots/inbox.png)
+![Fictional email with its recorded AI analysis](docs/screenshots/analysis.png)
+<details><summary>Mobile reading view</summary>
+
+![Mobile demo with recorded analysis](docs/screenshots/mobile.png)
+
+</details>
+
+## Features
+
+- Two read-only IMAP inboxes: T-Online and TU Braunschweig.
+- Full parsed message text, sender, recipients, date, unread status and attachment metadata.
+- German AI summaries, importance, required action, deadlines, reply recommendations and categories.
+- Local analysis reuse, token/cost recording and automatic detection of new T-Online mail.
+- Shared desktop/mobile mail interface for live use and the static demo.
 
 ## Why I built it
 
-MAX AI began as a personal application: I wanted to read private and university
-email in one place and identify what actually needed my attention.
-I also added small interactive puzzles that I use alongside the mail workspace.
-
-This public version contains the application code, with no personal credentials,
-real emails, analysis caches, or private usage history. Configure your own
-accounts and OpenAI API key to use the mail features. The interface is primarily
-German; this documentation is English.
-
-## Implemented features
-
-| Area | What works |
-| --- | --- |
-| Mail | T-Online and TU Braunschweig IMAP inboxes, account switching and refresh |
-| Reading | Full parsed text, sender, recipients, date, unread status and attachment metadata |
-| AI | German summary, importance, action required, action, deadline, reply recommendation and category |
-| Automation | Polling for new T-Online messages while the application is open |
-| Persistence | Local analysis cache, usage log and automatic-analysis state |
-| Usage | Model, token count and estimated USD cost shown for each analysis |
-| Sudoku | Generated puzzles, three difficulties, notes, keyboard input and saved games |
-| Logic Lab | Six question categories, three difficulties, hints, solutions and local results |
-
-Mail is read-only: viewing messages does not mark them as read on the server.
-The app retrieves the latest **100 T-Online messages** and **20 university messages**.
-These are rolling inbox windows, not complete mailbox synchronization.
-Attachment names, types and sizes are shown; attachment download is not implemented.
-
-AI analysis is implemented for **T-Online only**. The university inbox supports
-reading but does not send its messages to OpenAI.
-Importance is classified and displayed on the selected mail; there is no
-importance-sorted inbox or automated action execution.
-
-## Technology
-
-- Next.js App Router and React 19
-- TypeScript and Tailwind CSS 4
-- ImapFlow for IMAP over TLS; MailParser for MIME parsing
-- OpenAI's Responses API with strict JSON-schema output
-- Lucide icons, MathLive input and Nerdamer symbolic math
-- Vitest for unit/integration tests; Playwright for browser tests
-
-Use **Node.js 24 or later** and npm. Exact installed versions are recorded in
-`package-lock.json`; installation uses `npm ci`.
+This project started as my personal mail application: I wanted private and
+university email in one workspace and a clearer view of what needed attention.
+The public repository contains the complete productive mail and AI application
+code, with no personal credentials, private emails or personal analysis history.
+The portfolio demo uses independently written fictional messages and the actual
+validated results of five one-time OpenAI calls. The interface is German;
+this documentation is English.
 
 ## Architecture
 
-```text
-Browser (React)
-  ├── Mail UI ───────────── /api/mail/{account}/messages[/uid]
-  │                              └── IMAP over TLS, read-only INBOX
-  ├── T-Online analysis ─── /api/ai/mail/analyze
-  │                              ├── OpenAI Responses API
-  │                              └── .max-ai-data/<account-hash>/
-  ├── New-mail polling ──── /api/ai/mail/auto-state
-  └── Sudoku / Logic Lab ── browser localStorage
-```
+| Mode | Entry/build | Data and execution |
+| --- | --- | --- |
+| Live, local | Next.js `/mail`, `npm run build` | Node route handlers → IMAP over TLS; OpenAI Responses API; private local JSON storage |
+| Static demo | `demo/src/main.tsx`, `npm run build:demo` | Vite → `demo/dist`; bundled fictional messages and recorded results; no backend |
 
-The Node.js route handlers handle credentials, MIME parsing and external calls.
-AI and persistence modules are marked `server-only`, so client imports fail
-at build time. Credentials are read from server environment variables and are
-never included in application props or API responses.
+Both modes render `AppShell`, `MailWorkspace` and `MailAnalysisCard`. The static
+entry imports no live fetch adapter, server modules or credentials. A Content
+Security Policy with `connect-src 'none'` blocks fetch, WebSocket and other data
+connections. Assets use the `/AI-Email-Assistant/` GitHub Pages base path. There
+are no analytics, external fonts, tracking or remote email images.
 
-All API routes reject non-local hosts and cross-origin browser requests.
-Responses are private and non-cacheable. The start scripts bind to `127.0.0.1`.
-There is no user login or multi-user authorization: run this as a local,
-single-user application, not as a public web service or through a tunnel.
+Live handlers parse MIME with MailParser and use ImapFlow with read-only mailbox
+locks. OpenAI and persistence modules are marked `server-only`. APIs reject
+remote hosts and cross-origin browser requests, and return private, non-cacheable
+responses. This is a local single-user application, without public authentication.
+Run the live app on loopback; GitHub Pages hosts only the static demo.
 
-## Install and configure
+Technology: Next.js App Router, React 19, TypeScript, Tailwind CSS 4, Lucide,
+ImapFlow, MailParser, OpenAI SDK, Vite, Vitest and Playwright. Node.js **24+** is
+required; exact dependencies are locked in `package-lock.json`.
+
+## Install and run the live application
 
 ```bash
+git clone https://github.com/MAX-AI-proxy/AI-Email-Assistant.git
+cd AI-Email-Assistant
 npm ci
 cp .env.example .env.local
 ```
 
-Edit `.env.local` with your own credentials. Unused accounts can remain blank.
-The example intentionally has empty secret values, not working credentials.
-Never rename secrets with a `NEXT_PUBLIC_` prefix.
+Edit `.env.local` with your own credentials. Leave unused accounts blank.
+Never use a `NEXT_PUBLIC_` prefix for secrets.
 
 | Variable | Purpose |
 | --- | --- |
-| `T_ONLINE_EMAIL` | Full T-Online email address |
-| `T_ONLINE_APP_PASSWORD` | Separate provider-approved IMAP/app password |
-| `TU_EMAIL_ADDRESS` | Your TU Braunschweig email address |
-| `TU_EMAIL_USERNAME` | Institutional IMAP login name |
+| `T_ONLINE_EMAIL` | Full T-Online address |
+| `T_ONLINE_APP_PASSWORD` | Provider-approved IMAP/app password |
+| `TU_EMAIL_ADDRESS` | TU Braunschweig address |
+| `TU_EMAIL_USERNAME` | Institutional IMAP login |
 | `TU_EMAIL_PASSWORD` | Institutional IMAP password |
 | `OPENAI_API_KEY` | Your own OpenAI API key |
-| `MAX_AI_AUTO_ANALYSIS` | `false` disables background polling/analysis; default enabled |
+| `MAX_AI_AUTO_ANALYSIS` | Set `false` to disable background analysis; retained for compatibility |
 
-The provider adapters use TLS on port 993:
-
-- T-Online: `secureimap.t-online.de`, authenticating with the full email address.
-- TU Braunschweig: `mail.tu-braunschweig.de`, authenticating with the IMAP username.
-
-These are two specific adapters, not a general account-management system.
-There is no Gmail/Outlook OAuth connection or settings screen for adding accounts.
-Ask your provider or institution about current IMAP availability and credentials.
-After changing environment variables, restart the application.
-
-## Run
-
-For development:
+The fixed provider adapters connect to `secureimap.t-online.de` and
+`mail.tu-braunschweig.de` over TLS on port 993. Check your provider's current
+IMAP availability and authentication requirements. Restart after configuration
+changes.
 
 ```bash
 npm run dev
-```
-
-For an optimized production build:
-
-```bash
+# Or:
 npm run build
 npm run start
 ```
 
-Open **http://127.0.0.1:3000**. `/` redirects directly to `/mail`.
-Without credentials, mail displays a configuration hint instead of crashing.
-Sudoku and Logic Lab work independently of mail and AI configuration.
+Open http://127.0.0.1:3000. `/` opens `/mail`. Missing credentials produce a
+configuration hint. Opening T-Online mail automatically analyzes it if no cached
+result exists and can incur API charges even with background analysis disabled.
+University mail is read-only without AI analysis. No mail is sent or modified.
 
-## How AI analysis works
+## AI and private storage
 
-Opening a T-Online message requests its analysis automatically. The server
-reuses an existing result when the message content has not changed; concurrent
-requests for the same analysis share one job in a single server process.
-Cached results remain readable even if the API key is temporarily absent.
+The existing analyzer calls `gpt-6-luna` with strict JSON-schema output,
+`reasoning.effort: none` and `store: false`, then validates all returned fields.
+Its instructions treat email content as untrusted and distinguish explicit
+deadlines from vague urgency. AI results can still be wrong: check the original
+message before making decisions.
 
-The analyzer uses **`gpt-6-luna`**, `reasoning.effort: none`, strict structured
-output and `store: false`. It asks the model to treat mail as untrusted content,
-avoid invented facts and distinguish concrete deadlines from vague urgency.
-Returned fields are validated before saving the result.
+Live message text and metadata are sent to OpenAI. `store: false` does not mean
+zero provider retention; see [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data).
 
-Message text and relevant metadata are sent to OpenAI for analysis.
-`store: false` disables response storage; it does not mean no provider-side
-retention. See [OpenAI data controls](https://developers.openai.com/api/docs/guides/your-data).
-AI outputs can be wrong; verify decisions against the original email.
+Private `.max-ai-data/<account-hash>/` files store analysis caches, token/cost
+logs and automatic-analysis state. Files use owner-only POSIX permissions but
+are unencrypted. Keep this ignored directory private. To clear history, stop
+the local app and remove it locally.
 
-When both T-Online credentials and an API key exist, background polling runs
-about once per minute while the app is open, with up to two analysis workers.
-The first poll establishes a baseline and does not analyze old messages.
-Later UIDs above the previous maximum are queued; failures remain pending while
-those messages are still in the rolling inbox window.
+While the app is open, configured background analysis polls roughly once a
+minute with up to two workers. The first poll establishes a baseline; later
+new UIDs are queued within the latest 100 T-Online messages. Cached content is
+reused and duplicate requests share a job within one server process.
 
-Reading a message can incur API charges even with background analysis disabled.
-No mail is sent and no reply or action is performed automatically.
+Displayed USD costs are estimates calculated from actual token usage, not
+billing records. The recorded demo cost is the original generation estimate,
+not a charge incurred by viewing the demo. Rates are centralized in the analyzer;
+see the [official model page](https://developers.openai.com/api/docs/models/gpt-6-luna).
 
-## Storage and estimated cost
+## Static demo and deployment
 
-The app creates `.max-ai-data/<account-hash>/` at runtime:
+```bash
+npm run build:demo
+npm run preview:demo
+```
 
-- `mail-analysis-cache.json`: summaries, classifications and analysis usage.
-- `ai-usage.json`: model, token counts, response IDs and estimated cost.
-- `t-online-auto-analysis-state.json`: baseline and pending message UIDs.
+Open http://127.0.0.1:3200/AI-Email-Assistant/. These commands require no secrets
+and never regenerate AI results. `check:demo` verifies the five saved results,
+usage fields and their SHA-256 binding to the fictional messages before building.
 
-These files are private, unencrypted local data. Summaries and metadata can
-contain personal information. New files use owner-only permissions on POSIX
-systems; do not share or commit the directory. Account addresses are hashed
-for directory names, and changing the configured account starts a separate cache.
-To clear mail-derived history, stop the app and delete `.max-ai-data` locally.
+The one-time generator is deliberately separate from builds and CI. It requires
+explicit approval, a temporary local `.env.local` key and
+`npm run generate:demo -- --approved-five-calls`. A private journal reserves each
+attempt before sending it, caps execution at five attempts across reruns, and
+disables SDK retries. Failed attempts are not silently replaced with made-up
+results or repeated calls. Successful completion removes the temporary key file.
+Never regenerate automatically in a deployment workflow.
 
-Costs are estimates, not billing records. The standard GPT-6 Luna rates checked
-on October 13, 2026 are $0.10 input, $0.01 cached input, $0.125 cache write and
-$0.50 output per million tokens. Regional premiums, processing tiers, taxes and
-future price changes are not included. See the
-[official model page](https://developers.openai.com/api/docs/models/gpt-6-luna).
-Rates are centralized in `src/lib/ai/mail-analyzer.ts`.
+The `Checks` GitHub Actions workflow verifies both apps and the publication set,
+then uploads **only `demo/dist`** and deploys it to GitHub Pages on successful
+`main` pushes. Repository Settings → Pages → Build and deployment → Source must
+be **GitHub Actions**. No IMAP credentials or OpenAI secrets are needed in CI.
 
-Puzzle progress and results live in browser localStorage and are not part of the
-repository. There is no cloud synchronization of either puzzles or mail data.
-
-## Checks and tests
+## Verification and public-file controls
 
 ```bash
 npm run typecheck
 npm run lint
 npm test
 npm run build
+npm run build:demo
 npx playwright install chromium --only-shell
 npm run test:e2e
+npm run test:demo
 npm audit --omit=dev
+npm run export:public
+npm run audit:public -- MAX-AI_Public
+npm run audit:staged
 ```
 
-Unit tests mock ImapFlow, MailParser and OpenAI. Filesystem tests use temporary
-folders and synthetic messages; unexpected network fetches fail the tests.
-Browser tests run against a production server with blank credentials and disabled
-background analysis. Mail/AI interactions use fictional browser fixtures.
-They also exercise the real APIs' missing-configuration and origin checks.
-No real IMAP access, mail sending or paid OpenAI calls are needed for these tests.
+Live unit and browser tests use mocks and fictional messages, with runtime
+credentials explicitly blank. Demo browser tests open all five messages, compare
+all displayed analyses with the saved API results, check mobile navigation and
+reject API or external-origin requests. No paid calls or real mail access occur
+during tests or public demo visits.
 
-The production dependency audit is clean at preparation time. The full audit
-reports a development-only `braces` advisory through Next.js ESLint tooling;
-there is no compatible fix reported by npm. See the release report.
+The export uses `scripts/public-files.json`, refuses an existing output folder
+and copies no Git history, secret files or runtime data. `PUBLIC_MANIFEST.json`
+binds each allowlisted file to its size and SHA-256. `audit:staged` independently
+reads the actual Git index blobs and checks the complete publishable tree.
+Only three explicitly allowlisted, visually reviewed PNG screenshots are accepted;
+PNG metadata and arbitrary binaries remain forbidden. Refresh the manifest with
+`npm run manifest:public` after reviewed source changes, before staging.
 
-## Current limitations
+See [the release report](docs/RELEASE_REPORT.md) and [security notes](SECURITY.md).
 
-- Calendar, knowledge, project and interests integrations are not implemented.
-- There is no separate costs dashboard or settings page.
-- Logic Lab has no daily challenge or dedicated statistics page.
-- No mailbox folders, paging, sending, deleting, attachment downloads or OAuth.
-- Automatic analysis needs an open browser; there is no background service.
-- IMAP UIDVALIDITY resets are not handled; clear local state after an inbox reset.
-- JSON write queues and duplicate suppression assume one Node.js server process.
-- Live provider authentication and model availability need your own credentials;
-  the release checks use mocks and cannot certify a particular account's access.
+## Limitations
 
-## Public export
-
-`npm run export:public` creates a new `MAX-AI_Public` folder **inside** the working
-copy from an explicit file allowlist. It refuses to overwrite an existing folder,
-does not copy Git history, and validates the result before finishing.
-
-`npm run audit:public -- MAX-AI_Public` checks paths, file types, likely secrets,
-non-example email addresses and manifest checksums independently.
-The export contains no `.env.local`, `.git`, `.max-ai-data`, dependencies, builds,
-logs, editor settings or operating-system metadata. See `docs/RELEASE_REPORT.md`
-for the feature audit, verification results and release boundaries.
+- Latest 100 T-Online / 20 university messages; no full mailbox synchronization.
+- No folders, paging, sending, deleting, attachment downloads, OAuth or general account management.
+- Importance is displayed per message; no priority sorting or automated actions.
+- Background analysis requires an open browser; UIDVALIDITY resets require clearing local state.
+- Local JSON queues and duplicate suppression assume a single Node server process.
+- Mock checks do not certify a user's live provider credentials or entitlement.
+- The demo is deliberately static and cannot accept uploads or analyze new mail.
+- No project license has been selected; public visibility alone grants no additional reuse rights.

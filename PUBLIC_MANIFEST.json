@@ -8,8 +8,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 662,
-      "sha256": "2fdb28d3d2cea0e5d77448dabbe28572893c1a7520231027365478d8d7f38b6d"
+      "bytes": 1462,
+      "sha256": "cecde6001bc052da57aa235b121a58ac57d0462987fe07b06ed7a949f9807548"
     },
     {
       "path": ".gitignore",
@@ -23,28 +23,68 @@
     },
     {
       "path": "README.md",
-      "bytes": 10246,
-      "sha256": "adf7facc8c8371fc1e637d2746185391a765edc040df659ce8c1a8c8810a45cd"
+      "bytes": 9126,
+      "sha256": "43dc6f55dc61a828a598839dc77e2d4c8534e1bfd14c04ee76d41cdcf22cee46"
     },
     {
       "path": "SECURITY.md",
-      "bytes": 1606,
-      "sha256": "e501844b4e4ea40998efec61353795caef61784752bcc5be798833e2889fc08e"
+      "bytes": 2210,
+      "sha256": "8342f86200570fd5798da38293e094b0ba3babbd743c50a63bb4de9dfec88c48"
+    },
+    {
+      "path": "demo/data/analyses.json",
+      "bytes": 4385,
+      "sha256": "c7c5e701b5625ca1f93357005e4bb044383b1d65c62b230c7a4dcd25336c024e"
+    },
+    {
+      "path": "demo/data/emails.json",
+      "bytes": 4302,
+      "sha256": "be3aed0a55ba3fa0d84aa55015ad8fd5bdb00436bdd1d841b4a699726fd1ddfb"
+    },
+    {
+      "path": "demo/index.html",
+      "bytes": 693,
+      "sha256": "dd7f38a7c01a2951191467910ad83f801fb5992664565283b00dd4b594b1733e"
+    },
+    {
+      "path": "demo/src/main.tsx",
+      "bytes": 2131,
+      "sha256": "e7bf29fcfc50880ea9744cc4ce1a3bccc5c6e597e9dd267481b24e230760ef73"
+    },
+    {
+      "path": "demo/vite.config.mts",
+      "bytes": 467,
+      "sha256": "aca4682521d9a316391f2f4ba7001717818d62e8ed4ef4820d35c41113776064"
     },
     {
       "path": "docs/FEATURE_AUDIT.md",
-      "bytes": 3318,
-      "sha256": "b3428597943a1cc4fa7cb6f1556cf7c786bc5e35ca5bc13652863da3eb3971ce"
+      "bytes": 1805,
+      "sha256": "cfa550d76cd75286b350441669d76fd5918aa24c5ecf7a333eb1e53abaf78253"
     },
     {
       "path": "docs/RELEASE_REPORT.md",
-      "bytes": 7007,
-      "sha256": "1d618b47161258ad6ee2ff715a92b75f8886e6abd86dbb981f3769a38165a2e5"
+      "bytes": 5353,
+      "sha256": "774c9f26f1ea4f3c2e9de414cbcc65d87b3fe63cd5cf1154dc459b0b717931dd"
+    },
+    {
+      "path": "docs/screenshots/analysis.png",
+      "bytes": 194581,
+      "sha256": "ee8c664369e97b2833b23f006701e9a6d3269938d39de7f075e2d2698911ab60"
+    },
+    {
+      "path": "docs/screenshots/inbox.png",
+      "bytes": 85373,
+      "sha256": "10c1bb18aa6a503781465f5504b171bbb6a504205cf8900a0e0adce0f5422fb8"
+    },
+    {
+      "path": "docs/screenshots/mobile.png",
+      "bytes": 152808,
+      "sha256": "e23a478d51f2b50fce7383213e38897643eb29e40da2ea723ffd50b7c90ca99b"
     },
     {
       "path": "eslint.config.mjs",
-      "bytes": 489,
-      "sha256": "68d964daf59044a4a72dd76844718ad461a7a4da7e2f3f02eee68609b0629ec1"
+      "bytes": 509,
+      "sha256": "5f4d9f0bf669eb0756d7c49011fbf7c80b1472d9bbfba73cee22ada6bd9538ca"
     },
     {
       "path": "next.config.ts",
@@ -53,18 +93,23 @@
     },
     {
       "path": "package-lock.json",
-      "bytes": 296841,
-      "sha256": "8fb3c07079965e273bb38d3b4f21ec1ce600cec6e2c6f06da410295a2fd5ef2b"
+      "bytes": 310186,
+      "sha256": "3af9fea1d8754cd406146a08a4340bf652c5f87e761825189cb1c1527ee2c3e6"
     },
     {
       "path": "package.json",
-      "bytes": 1135,
-      "sha256": "a6383c97c205f17a5511a3248ff2bc114e8a46cbd8066d01b73dabe15f3bbd77"
+      "bytes": 1754,
+      "sha256": "19a2ec2031424ab3a0772085102d9736479b34df0939f6872be961393aa1c471"
     },
     {
       "path": "playwright.config.ts",
       "bytes": 587,
       "sha256": "f5cece851f137fb8a2f388bb8d7a4a716bdc7443c874f009716bceb251fcad39"
+    },
+    {
+      "path": "playwright.demo.config.ts",
+      "bytes": 391,
+      "sha256": "0960e16741e80e79438542965e164df58418bf4379a40dd4659cfcab66f1d15f"
     },
     {
       "path": "postcss.config.mjs",
@@ -73,8 +118,18 @@
     },
     {
       "path": "scripts/audit-public.mjs",
-      "bytes": 4013,
-      "sha256": "bb01d61f37e51ed150f7a3df2046c68456151c801f4f87aa111ba34155e29356"
+      "bytes": 5938,
+      "sha256": "c10831ad9537adbeadf57c87528e3364ead73852b1ef6282c728503a0fb9020e"
+    },
+    {
+      "path": "scripts/audit-staged.mjs",
+      "bytes": 1587,
+      "sha256": "08aa7968ddfc09f4ce1b3953c58fa7ed246cecd1a99ca92d93104fe32073b0ae"
+    },
+    {
+      "path": "scripts/check-demo.mts",
+      "bytes": 1328,
+      "sha256": "d7aae8a0bda1a6ec5e8e88775c3b22c520013fbd859f6f48663e37498ef8f59b"
     },
     {
       "path": "scripts/export-public.mjs",
@@ -82,14 +137,24 @@
       "sha256": "73fb092ff2f4a396ccbcc2a3f508b9f274c6daa6e2ce5467048d2b52087e00fa"
     },
     {
+      "path": "scripts/generate-demo.mts",
+      "bytes": 3230,
+      "sha256": "a06d3fee8897600d32ad773e42c3f6cff9ab75e33504093b6b55fc07f5e8f49b"
+    },
+    {
       "path": "scripts/public-files.json",
-      "bytes": 2352,
-      "sha256": "c836c6f9e6fa649cc3e9f928f7c7e5f6a0f9389c5f192f44bc0fbf372188f879"
+      "bytes": 2148,
+      "sha256": "ad4083ae77389a8ad46b3b50b6359f47f3aeb2563a31f9dc2218a754b83de82b"
+    },
+    {
+      "path": "scripts/update-manifest.mjs",
+      "bytes": 510,
+      "sha256": "9ea2d7781a294bbbfd5ebb205c56a8915c339e2e6c33ac235b668f28d15b4b03"
     },
     {
       "path": "src/app/api/ai/mail/analyze/route.ts",
-      "bytes": 4078,
-      "sha256": "274990496da64100b4a3f910953d58fd346cd0c5504484450fb061c618947d16"
+      "bytes": 4090,
+      "sha256": "01eb2ac136a56624913c43a2f5f6ca6662f515dfe00afa0307bde19d9086e98f"
     },
     {
       "path": "src/app/api/ai/mail/auto-state/route.ts",
@@ -98,8 +163,8 @@
     },
     {
       "path": "src/app/api/mail/t-online/messages/[uid]/route.ts",
-      "bytes": 4167,
-      "sha256": "a61cd3371f0d4d68b43b6046877ee4772c2cbdc2e40643c394899d76b616c0ef"
+      "bytes": 4179,
+      "sha256": "8b29ba6dc757279412e0dad367e295eca1da8e6644452466a0ce3649ad44bf21"
     },
     {
       "path": "src/app/api/mail/t-online/messages/route.ts",
@@ -113,13 +178,13 @@
     },
     {
       "path": "src/app/api/mail/tu/messages/[uid]/route.ts",
-      "bytes": 4241,
-      "sha256": "3051b8a69a098451dd3df6f3ef8d076f1109cc3938fc65498122b4ead51a6f21"
+      "bytes": 4253,
+      "sha256": "07ed8c127ce901bf1a6af8ebbf6c8a7c4839ace33f079237ca47956706fb7fdf"
     },
     {
       "path": "src/app/api/mail/tu/messages/route.ts",
-      "bytes": 3218,
-      "sha256": "d0f25c30648f6abf8ec76ebc9066e6f632ceaeb4fccec180147599e0bf69fd0f"
+      "bytes": 3230,
+      "sha256": "1f89a1c607ffd983094b34b554958925728a54be3c43759e130874b651a2a79b"
     },
     {
       "path": "src/app/api/mail/tu/test/route.ts",
@@ -128,23 +193,23 @@
     },
     {
       "path": "src/app/globals.css",
-      "bytes": 462,
-      "sha256": "12bb006ccdae03abed3e7a981a77ac0bf867d59f12d349d7284a250a4ee3168f"
+      "bytes": 513,
+      "sha256": "a9911f3338725f00f37dc1ea7c6185e389be4b8bd6cb9483f3b43cf8adcaa2c6"
     },
     {
       "path": "src/app/icon.svg",
-      "bytes": 194,
-      "sha256": "5c50ac23ee93fdcd9877b8a840ebfe51062fac16aad7ba8b131f438deca91256"
+      "bytes": 293,
+      "sha256": "5194077399e83ec38c6976bd68559344fa6636a6c24888f3c9366381b64599d1"
     },
     {
       "path": "src/app/layout.tsx",
-      "bytes": 934,
-      "sha256": "e2fbdf23bc8ec9f8507ac8d53153a64492b4a0b69a7d4ad5c4cdb9a76d40cda5"
+      "bytes": 937,
+      "sha256": "f3ba05ecc305b17075b9f6442d2e7786e9fa75bfa5fd29dc58dd3169635453d6"
     },
     {
       "path": "src/app/mail/page.tsx",
-      "bytes": 25086,
-      "sha256": "ecdbdaee6ac30aaeb97508a85e427cf2bb2d156437853e51873bbaa459648482"
+      "bytes": 130,
+      "sha256": "c76c963120112180498004bb3f8fe6f00e2366cd963bfce220449ad835a076ae"
     },
     {
       "path": "src/app/page.tsx",
@@ -152,59 +217,39 @@
       "sha256": "258c1949b11050ad9320d120fff7c05c104b945fcabb3a27ab80e94ec83e8bad"
     },
     {
-      "path": "src/app/spielwiese/logic-lab/page.tsx",
-      "bytes": 7205,
-      "sha256": "286a72ac112c93ed5e86f7ac04c876681c3069efa03b4b3f67f6de0630f40437"
-    },
-    {
-      "path": "src/app/spielwiese/logic-lab/play/page.tsx",
-      "bytes": 34774,
-      "sha256": "57f7991b7d17a6c52c2d5e8a12638529b3ed78f8c9cdaa9a24f59699fa029432"
-    },
-    {
-      "path": "src/app/spielwiese/page.tsx",
-      "bytes": 3721,
-      "sha256": "2eb85c2c788d87afa21e761e7552b534cf5fd3eb251d7fde71856a354b44934f"
-    },
-    {
-      "path": "src/app/spielwiese/sudoku/page.tsx",
-      "bytes": 29996,
-      "sha256": "e6a7deb75d743a961a2d486c498ed932ccab5f360ad20c9fda816634141d587d"
-    },
-    {
       "path": "src/components/app-shell.tsx",
-      "bytes": 4132,
-      "sha256": "45a07237e2a581e378e17ed85047fd8e576ac4da5a7c8455ac2f14aa895617b2"
+      "bytes": 3932,
+      "sha256": "a1625ba9a5a9038ac935ea01c1ce31645422c74906874f71a6b9f70cfb1eda02"
     },
     {
-      "path": "src/components/confirm-dialog.tsx",
-      "bytes": 3545,
-      "sha256": "5d09169dc6948d2425f25e21a870f315856a635b1124eb3098850ca04abe79ae"
-    },
-    {
-      "path": "src/components/logic-lab/answer-controls.tsx",
-      "bytes": 8682,
-      "sha256": "3476a8a5d6ba551b5abdecc6bcbb7ea9901f0fcae89d06a64ec1c0ba8216330d"
-    },
-    {
-      "path": "src/components/logic-lab/math-field.tsx",
-      "bytes": 3679,
-      "sha256": "ff23c923be39a1e10d0d2d36bc75b43513e1e17d3d9cf2b7909d9e1abc7dad11"
-    },
-    {
-      "path": "src/components/logic-lab/question-view.tsx",
-      "bytes": 6228,
-      "sha256": "2947bd76e1ac9f1dbcc3b6b2d3a698cba7a0fc625929a5d71526405b5bc646da"
+      "path": "src/components/mail/live-mail-client.tsx",
+      "bytes": 6816,
+      "sha256": "70f7e28013e99cfafedd6d902466fb46be7c1b1cf0351aab59a8edcd0a3279f0"
     },
     {
       "path": "src/components/mail/mail-ai-analysis.tsx",
-      "bytes": 8863,
-      "sha256": "fc62f8429e69d7dab72ac4f8753fb12785e00e86c6c0658f5e32f99f104ce2c9"
+      "bytes": 3799,
+      "sha256": "f1a8751d314f45d567d97a7b2fd3ae2855e24e1b184efa314b0a8db26f1d38aa"
+    },
+    {
+      "path": "src/components/mail/mail-analysis-card.tsx",
+      "bytes": 5540,
+      "sha256": "d64ed0daf7239dc257e886b7abd61830301a2b7cf0c53459b12733bbb953b75f"
+    },
+    {
+      "path": "src/components/mail/mail-workspace.tsx",
+      "bytes": 19575,
+      "sha256": "32d67638a77a2c22f113749a58d13959cb8e63e8751696cf3db95fac3f0ccb87"
     },
     {
       "path": "src/components/mail/t-online-auto-analyzer.tsx",
       "bytes": 14843,
       "sha256": "5727567e868cd72cd07488ec188e79b1e89a13a1e08dd0bc812784bf984fa0fb"
+    },
+    {
+      "path": "src/components/mail/types.ts",
+      "bytes": 961,
+      "sha256": "046f42e7a8ec5b6e595563adcc46025681afd642be6c78657574c2066514f8b6"
     },
     {
       "path": "src/lib/ai/data-directory.ts",
@@ -218,8 +263,8 @@
     },
     {
       "path": "src/lib/ai/mail-analyzer.ts",
-      "bytes": 7028,
-      "sha256": "7d37b2cd262f3cdccfc919e3f3ff466091cc0ec1362f87de0f379b862f55f2a5"
+      "bytes": 7037,
+      "sha256": "353fc8daedb53542f46891256987f1552d56f17fbfa72df53ab9253824e8c947"
     },
     {
       "path": "src/lib/ai/openai.ts",
@@ -237,79 +282,19 @@
       "sha256": "9529655fa819649e2dde50876dded6fd79a7ea66bec9161bb2898a9b9fc9e6c7"
     },
     {
-      "path": "src/lib/logic-lab/derivatives.ts",
-      "bytes": 8177,
-      "sha256": "50beae0d65685a432823b2ed1be2898153965c8c16be17a9cd02357f6d7782cf"
-    },
-    {
-      "path": "src/lib/logic-lab/generator.ts",
-      "bytes": 1617,
-      "sha256": "298eef0843031ff0c4edad1b26af4afc197801960543f34481d760f949cd12be"
-    },
-    {
-      "path": "src/lib/logic-lab/grids.ts",
-      "bytes": 12946,
-      "sha256": "bf8549927e7b089c4e6749749ef0375420ca939ceda353ae5eae44da9c4a5efb"
-    },
-    {
-      "path": "src/lib/logic-lab/integrals.ts",
-      "bytes": 9794,
-      "sha256": "d1e94bacb28d17f8a6903da5d3a9038b165b59570b62987d007864d27fa1dbdd"
-    },
-    {
-      "path": "src/lib/logic-lab/limits.ts",
-      "bytes": 8311,
-      "sha256": "6ff0fbc2a9d69259ee2d994df7845094eda699f600ebf54c9a187c62d3d251be"
-    },
-    {
-      "path": "src/lib/logic-lab/math-engine.ts",
-      "bytes": 10742,
-      "sha256": "e17930b9f263631b726923aba2a177e77f8c8e09a1e5dc032be2eea566f7d13b"
-    },
-    {
-      "path": "src/lib/logic-lab/math-logic.ts",
-      "bytes": 18016,
-      "sha256": "a86dd3a314b012ef6f5c3c9c87461bf5f9366823ff6ed530fe6341bc46b3cfb1"
-    },
-    {
-      "path": "src/lib/logic-lab/random.ts",
-      "bytes": 669,
-      "sha256": "7977201706d08a414f36e4d8392cd8498aea07eb8633e6eb4d49cfc467021e05"
-    },
-    {
-      "path": "src/lib/logic-lab/sequences.ts",
-      "bytes": 13629,
-      "sha256": "0d5bb2879cd79178f0e6bbcd4c23ab4d47b3455c7e16193322c616dc73c950a5"
-    },
-    {
-      "path": "src/lib/logic-lab/statistics.ts",
-      "bytes": 1832,
-      "sha256": "d5ff755a7af63499bcc1fc562b9e0346377482118e16ae6b1353b8d04fa3d6b9"
-    },
-    {
-      "path": "src/lib/logic-lab/types.ts",
-      "bytes": 2523,
-      "sha256": "d27c10928c0b4bbb46220e3d3f87cd443f3a8cdbbddcab3206d4c8d4e43369c0"
-    },
-    {
       "path": "src/lib/server/request-security.ts",
       "bytes": 1380,
       "sha256": "a0d8b126fbb3a3994ded79f6505d2dc6ca76d8c02fb68fb184e0eac9690c8f36"
     },
     {
-      "path": "src/lib/sudoku.ts",
-      "bytes": 5305,
-      "sha256": "5fdf5c700946a952380258aadd394b033055a8d0056aa85a3fb665ca3b839679"
-    },
-    {
-      "path": "src/types/nerdamer.d.ts",
-      "bytes": 684,
-      "sha256": "a62b417e1d91aff1df975798b0e92feddc8af3770e2922ea6e42f576b3f787ba"
+      "path": "tests/demo/demo.spec.ts",
+      "bytes": 3903,
+      "sha256": "eaf0b20dde4063c87f97c56871046cd079c24fd1a1add7fa9f9caf36c4514a17"
     },
     {
       "path": "tests/e2e/app.spec.ts",
-      "bytes": 5151,
-      "sha256": "4505b5eb720f454d27ad080e9c2dd8892e181804e8d8bd2e422fe6f97868e630"
+      "bytes": 4137,
+      "sha256": "b064d8b7e236385ebaebfacd1b203abbf451d2c889d6eed648347c2c12195e69"
     },
     {
       "path": "tests/setup.ts",
@@ -327,19 +312,19 @@
       "sha256": "2dbb061fc7fec234356e6f4fd61c77de3c486e5c464561c8f2629236c2744bf5"
     },
     {
+      "path": "tests/unit/demo-data.test.ts",
+      "bytes": 1182,
+      "sha256": "860e967f74985888673b142152843ccc1f305357c5e97b90066e53b758fb27c0"
+    },
+    {
       "path": "tests/unit/mail-routes.test.ts",
       "bytes": 6415,
       "sha256": "f8da2dbcbf5388767dba694ed5045e35218bf687d5dcbc4efb61c8a8e5a0f4c9"
     },
     {
       "path": "tests/unit/public-export.test.ts",
-      "bytes": 2674,
-      "sha256": "375a6a21ca02728b62aba4bdc5eb312f86e7a8713d1739a9b55361c9a1e27fae"
-    },
-    {
-      "path": "tests/unit/puzzles.test.ts",
-      "bytes": 3268,
-      "sha256": "09e0ba6e0a131ca319285d3c2116ac684616585ff61d8f2f1a79a0f12055dd82"
+      "bytes": 3539,
+      "sha256": "5e6d6f1c5d416302a7397f2f39792d1d12f1c498bff9ec23b73feb5bcff65bfa"
     },
     {
       "path": "tests/unit/request-security.test.ts",

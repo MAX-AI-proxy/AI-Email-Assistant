@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "source": "openai-responses-api",
+  "fixtureHash": "23a0c3ec17609a5d9ca5b349852665f3221d83de2f6f29c9a591079537d87166",
+  "generatedAt": "2026-10-14T08:51:29.141Z",
+  "entries": [
+    {
+      "uid": 1,
+      "analysis": {
+        "summary": "Mira benötigt Alex’ Freigabe der Prüfliste für das Projekt Morgenlicht. Zu prüfen sind Dokumentation, Testdaten und Zeitplan; ohne Rückmeldung wird der Projektstart verschoben.",
+        "importance": "Hoch",
+        "actionRequired": "Ja",
+        "action": "Prüfe die drei Punkte der Prüfliste und antworte mit deiner Freigabe oder den noch offenen Punkten.",
+        "deadline": "16. Oktober 2026, 16:00 Uhr (Europe/Berlin)",
+        "replyRecommended": "Ja",
+        "category": "Arbeit"
+      },
+      "usage": {
+        "model": "gpt-6-luna",
+        "inputTokens": 832,
+        "cachedInputTokens": 0,
+        "cacheWriteTokens": 0,
+        "outputTokens": 122,
+        "totalTokens": 954,
+        "estimatedCostUsd": 0.0001442
+      },
+      "analyzedAt": "2026-10-14T08:51:17.451Z"
+    },
+    {
+      "uid": 2,
+      "analysis": {
+        "summary": "Das Aster Beispielstudio hat eine fiktive Rechnung über 249,00 EUR für eine Gestaltungsleistung ausgestellt. Die Zahlung ist bis zum 23. Oktober 2026 vorgesehen; vorab soll die Rechnung mit der vereinbarten Bestellung abgeglichen werden.",
+        "importance": "Hoch",
+        "actionRequired": "Ja",
+        "action": "Leistung und Betrag mit der vereinbarten Bestellung abgleichen und den Rechnungsbetrag von 249,00 EUR begleichen.",
+        "deadline": "2026-10-23",
+        "replyRecommended": "Nein",
+        "category": "Rechnung"
+      },
+      "usage": {
+        "model": "gpt-6-luna",
+        "inputTokens": 844,
+        "cachedInputTokens": 0,
+        "cacheWriteTokens": 0,
+        "outputTokens": 126,
+        "totalTokens": 970,
+        "estimatedCostUsd": 0.0001474
+      },
+      "analyzedAt": "2026-10-14T08:51:20.190Z"
+    },
+    {
+      "uid": 3,
+      "analysis": {
+        "summary": "Der Newsletter stellt fünf herbstliche Gestaltungsideen, ein Interview und Inspiration für Kreativprojekte vor. Zusätzlich wird ein freiwilliger Rabatt von 15 Prozent im Beispielshop erwähnt.",
+        "importance": "Niedrig",
+        "actionRequired": "Nein",
+        "action": "-",
+        "deadline": "-",
+        "replyRecommended": "Nein",
+        "category": "Newsletter/Werbung"
+      },
+      "usage": {
+        "model": "gpt-6-luna",
+        "inputTokens": 819,
+        "cachedInputTokens": 0,
+        "cacheWriteTokens": 0,
+        "outputTokens": 82,
+        "totalTokens": 901,
+        "estimatedCostUsd": 0.0001229
+      },
+      "analyzedAt": "2026-10-14T08:51:23.104Z"
+    },
+    {
+      "uid": 4,
+      "analysis": {
+        "summary": "Jonas fragt, ob Alex am 19. Oktober 2026 von 10:00 bis 10:30 Uhr am Projekt-Review teilnehmen kann. Falls der Termin nicht passt, soll Alex zwei Alternativen für dieselbe Woche vorschlagen.",
+        "importance": "Mittel",
+        "actionRequired": "Ja",
+        "action": "Bis zum 15. Oktober 2026 um 12:00 Uhr den Termin bestätigen oder zwei Alternativen für dieselbe Woche vorschlagen.",
+        "deadline": "15. Oktober 2026 um 12:00 Uhr",
+        "replyRecommended": "Ja",
+        "category": "Arbeit"
+      },
+      "usage": {
+        "model": "gpt-6-luna",
+        "inputTokens": 831,
+        "cachedInputTokens": 0,
+        "cacheWriteTokens": 0,
+        "outputTokens": 132,
+        "totalTokens": 963,
+        "estimatedCostUsd": 0.00014910000000000002
+      },
+      "analyzedAt": "2026-10-14T08:51:25.831Z"
+    },
+    {
+      "uid": 5,
+      "analysis": {
+        "summary": "Nora teilt positive Eindrücke von einem Spaziergang am See am Wochenende und sendet einen freundlichen Gruß. Sie erwartet keine Antwort und schlägt unverbindlich vor, sich irgendwann wiederzusehen.",
+        "importance": "Niedrig",
+        "actionRequired": "Nein",
+        "action": "-",
+        "deadline": "-",
+        "replyRecommended": "Nein",
+        "category": "Persönlich"
+      },
+      "usage": {
+        "model": "gpt-6-luna",
+        "inputTokens": 806,
+        "cachedInputTokens": 0,
+        "cacheWriteTokens": 0,
+        "outputTokens": 87,
+        "totalTokens": 893,
+        "estimatedCostUsd": 0.0001241
+      },
+      "analyzedAt": "2026-10-14T08:51:29.140Z"
+    }
+  ]
+}

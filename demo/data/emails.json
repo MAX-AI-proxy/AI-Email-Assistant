@@ -1,0 +1,82 @@
+[
+  {
+    "uid": 1,
+    "subject": "Freigabe für Beispielprojekt bis 16. Oktober, 16 Uhr",
+    "senderName": "Mira Beispiel",
+    "senderAddress": "mira.team@example.com",
+    "date": "2026-10-14T08:15:00Z",
+    "unread": true,
+    "text": "Hallo Alex,\n\nfür den Start unseres fiktiven Projekts Morgenlicht benötigen wir deine Freigabe der Prüfliste. Bitte prüfe die drei Punkte: vollständige Dokumentation, freigegebene Testdaten und bestätigter Zeitplan. Antworte bitte ausdrücklich mit deiner Freigabe oder den noch offenen Punkten bis zum 16. Oktober 2026 um 16:00 Uhr (Europe/Berlin). Ohne diese Rückmeldung müssen wir den geplanten Start verschieben.\n\nVielen Dank\nMira Beispiel\nMorgenlicht Beispielwerk",
+    "recipients": [
+      {
+        "name": "Alex Beispiel",
+        "address": "alex@example.com"
+      }
+    ],
+    "attachments": []
+  },
+  {
+    "uid": 2,
+    "subject": "Beispielrechnung DEMO-2026-0142 · Zahlung bis 23. Oktober",
+    "senderName": "Aster Beispielstudio",
+    "senderAddress": "rechnung@example.com",
+    "date": "2026-10-14T07:20:00Z",
+    "unread": true,
+    "text": "Guten Tag Alex Beispiel,\n\nfür die fiktive Gestaltungsleistung im Projekt Morgenlicht stellen wir Ihnen die Beispielrechnung DEMO-2026-0142 über 249,00 EUR aus. Bitte begleichen Sie den Rechnungsbetrag bis zum 23. Oktober 2026. Prüfen Sie vor der Zahlung, ob die Leistung und der Betrag mit der vereinbarten Bestellung übereinstimmen. Bei Rückfragen nennen Sie bitte die Rechnungsnummer.\n\nDiese Nachricht enthält bewusst keine Bankverbindung; alle Angaben sind Beispieldaten.\n\nFreundliche Grüße\nDas Team von Aster Beispielstudio",
+    "recipients": [
+      {
+        "name": "Alex Beispiel",
+        "address": "alex@example.com"
+      }
+    ],
+    "attachments": []
+  },
+  {
+    "uid": 3,
+    "subject": "Ideenpost: fünf frische Gestaltungsideen für den Herbst",
+    "senderName": "Wolkenfeder Beispielpost",
+    "senderAddress": "newsletter@example.com",
+    "date": "2026-10-13T14:00:00Z",
+    "unread": false,
+    "text": "Hallo Alex,\n\nunsere neue fiktive Ideenpost ist da: Entdecke fünf Farbpaletten, ein Interview mit unserem Beispielteam und Inspiration für kleine Kreativprojekte. Im Beispielshop gibt es außerdem einen freiwilligen Rabatt von 15 Prozent. Es gibt keine Verpflichtung, keine Antwort ist erforderlich und für dieses Angebot ist keine feste Frist vorgesehen.\n\nViel Spaß beim Stöbern!\nWolkenfeder Beispielpost\nDu erhältst diese fiktive Nachricht als Newsletter-Beispiel.",
+    "recipients": [
+      {
+        "name": "Alex Beispiel",
+        "address": "alex@example.com"
+      }
+    ],
+    "attachments": []
+  },
+  {
+    "uid": 4,
+    "subject": "Terminabstimmung: Projekt-Review am 19. Oktober",
+    "senderName": "Jonas Beispiel",
+    "senderAddress": "jonas.projekt@example.com",
+    "date": "2026-10-13T09:30:00Z",
+    "unread": true,
+    "text": "Hallo Alex,\n\nhast du am Montag, 19. Oktober 2026, von 10:00 bis 10:30 Uhr (Europe/Berlin) Zeit für unser fiktives Projekt-Review? Wir möchten den aktuellen Entwurf besprechen und die nächsten Aufgaben abstimmen. Bitte bestätige bis zum 15. Oktober 2026 um 12:00 Uhr, ob der Termin passt. Wenn nicht, schlage bitte zwei Alternativen für dieselbe Woche vor.\n\nBeste Grüße\nJonas Beispiel\nKieselpfad Beispielteam",
+    "recipients": [
+      {
+        "name": "Alex Beispiel",
+        "address": "alex@example.com"
+      }
+    ],
+    "attachments": []
+  },
+  {
+    "uid": 5,
+    "subject": "Ein Gruß und ein paar Eindrücke vom Wochenende",
+    "senderName": "Nora Beispiel",
+    "senderAddress": "nora@example.com",
+    "date": "2026-10-12T16:40:00Z",
+    "unread": false,
+    "text": "Hallo Alex,\n\nich wollte dir nur einen kleinen Gruß dalassen. Unser fiktiver Spaziergang am See am Wochenende war sehr schön, besonders die bunten Blätter und das ruhige Wetter. Ich hoffe, du hattest ebenfalls eine angenehme Zeit.\n\nDu musst gerade nichts organisieren oder beantworten; ich wollte einfach diese Eindrücke teilen. Vielleicht sehen wir uns irgendwann wieder, wenn es für uns beide passt.\n\nLiebe Grüße\nNora Beispiel",
+    "recipients": [
+      {
+        "name": "Alex Beispiel",
+        "address": "alex@example.com"
+      }
+    ],
+    "attachments": []
+  }
+]
